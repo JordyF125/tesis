@@ -1,0 +1,6 @@
+venv
+db.sqllite3
+.vscode
+media
+__pycache__
+**/__pycache__

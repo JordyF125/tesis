@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container py-5">
+    <section class="card card-body">
+        <h1 class="display-1 text-center">Registro de deportista</h1>
+        {{error}}
+        <form action="/registrarse/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+            
+            <!--<div class="mb-3">
+                <label for="ceduladeportista">Cédula: </label>
+                <input type="text" name="ceduladeportista" id="ceduladeportista" class="form-control">
+            </div>-->
+            
+            <button class="btn btn-dark">Registrarse</button>
+        </form>
+    </section>
+</main>
+
+
+{% endblock %}

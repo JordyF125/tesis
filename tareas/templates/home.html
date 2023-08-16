@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container py-5">
+    <h1 class="display-1 text-center">Eventos Deportivos</h1>
+    {% for evento in eventos %}
+        
+            <form action="/ingresar/" method="POST">
+                
+                    {% if evento.estado == True %}
+                    <section class="card card-body">
+                        <b>{{evento.tipoevento}}:</b>
+                        <p>{{evento.descripcion}}</p>
+                        <b>Fecha inicio: </b>
+                        <p>{{evento.fechainicioevento}}</p>
+                        <b>Fecha fin: </b>
+                        <p>{{evento.fechafinevento}}</p>
+                        {% if user.is_authenticated and user.is_staff == False %}
+                            <a href="#" class="link-primary">Inscribirse</a>
+                        {% endif %}
+                    </section>
+                    {% endif %}
+                 
+            </form>
+        
+    {% endfor %}
+</main>
+{% endblock %}
